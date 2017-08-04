@@ -5,9 +5,10 @@ from keras.applications import ResNet50
 from keras.applications import imagenet_utils
 from keras.layers import Dense, Activation, Flatten, BatchNormalization, Dropout
 from keras.layers import merge
+from keras.layers import Input, Flatten, Dense
 from keras.layers.convolutional import Convolution2D, MaxPooling2D, ZeroPadding2D, AveragePooling2D
 
-def resnet(input_shape=(256,256,3), nb_classes=5, optimizer='Adam', loss='binary_crossentropy'):
+def resnet_v1(input_shape=(256,256,3), nb_classes=5, optimizer='Adam', loss='binary_crossentropy'):
     resnet_model = ResNet50(weights='imagenet')
     inp = Input(shape=input_shape)
     output_resnet = resnet_model(inp)
